@@ -1,0 +1,15 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+type Props = HTMLAttributes<'a'>;
+
+// 或者通过 `interface` 继承
+// interface Props extends HTMLAttributes<'a'> {
+//   "data-url"?: string;
+// }
+
+const { href, ...attrs } = Astro.props;
+---
+<a href={href} {...attrs}>
+  <slot />
+</a>

@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import node from '@astrojs/node';
+import solidJs from '@astrojs/solid-js';
 
 // https://astro.build/config
 export default defineConfig({
@@ -7,9 +8,5 @@ export default defineConfig({
   adapter: node({
     mode: 'standalone',
   }),
-  resolve: {
-    alias: {
-      '~': new URL('./src', import.meta.url),
-    },
-  },
+  integrations: [solidJs()],
 });
