@@ -1,9 +1,9 @@
 {
-  "name": "receptive-field",
+  "name": "astro-hackernews",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --port=3210",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
