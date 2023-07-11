@@ -1,0 +1,23 @@
+---
+export interface Props {
+  message?: string;
+}
+
+const { message = 'Welcome, world!' } = Astro.props;
+---
+
+<astro-greet data-message={message}>
+  <button>SAY HI!</button>
+</astro-greet>
+
+<script>
+  class AstroGreet extends HTMLElement {
+    constructor() {
+      super();
+      const message = this.dataset.message;
+      this.querySelector('button')?.addEventListener('click', () => alert(message));
+    }
+  }
+
+  customElements.define('astro-greet', AstroGreet);
+</script>

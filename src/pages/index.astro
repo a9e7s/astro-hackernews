@@ -1,16 +1,35 @@
 ---
 import Layout from '~/layouts/Layout.astro';
 import Show from '~/components/Show.astro';
+import fs from 'node:fs/promises';
+import { Image } from 'astro:assets';
+import thumb from '../assets/share.png';
+import ConfettiButton from '~/components/ConfettiButton.astro';
+import AstroGreet from '~/components/AstroGreet.astro';
+
+// const url = new URL('../../package.json', import.meta.url);
+// const json = await fs.readFile(url, 'utf-8');
+// const data = JSON.parse(json);
+
+const data = { name: 'xxx', version: '0.0.1' };
 
 const round = Math.random();
 ---
 
 <Layout>
-    <div class="p-10">
-        <h1 class="text-4xl">HELLO</h1>
-        <Show when={round > 0.5}>
-            <h3 class="pt-4">{round}</h3>
-            <h3 class="pt-4" slot="fallback">fallback show</h3>
-        </Show>
-    </div>
+  <div class="p-10">
+    <h1 class="text-4xl">{data.name}</h1>
+    <h3 class="text-2xl">version: {data.version}</h3>
+
+    <Image src={thumb} width={300} alt="" quality={'high'} style={{ width: '150px' }} />
+
+    <ConfettiButton />
+
+    <Show when={round > 0.5}>
+      <h3 class="pt-4">{round}</h3>
+      <h3 class="pt-4" slot="fallback">fallback show</h3>
+    </Show>
+
+    <AstroGreet message={'Hi'} />
+  </div>
 </Layout>

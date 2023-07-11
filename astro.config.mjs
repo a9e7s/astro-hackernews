@@ -10,4 +10,7 @@ export default defineConfig({
     mode: 'standalone',
   }),
   integrations: [solidJs(), tailwind()],
+  experimental: {
+    assets: true,
+  },
 });

@@ -1,0 +1,8 @@
+<button data-confetti-button>Celebrate!</button>
+
+<script>
+    import confetti from 'canvas-confetti';
+    document.querySelectorAll('[data-confetti-button]').forEach((button) => {
+        button.addEventListener('click', () => confetti());
+    });
+</script>
